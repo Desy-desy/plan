@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="name">
+			<input type="text" v-model="name" placeholder="你的名字" /><br/>
+			<h4>您好：{{name}}</h4>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let name = new Vue({
+			el:'#name',
+			data:{
+				name:''
+			}
+		})
+	</script>
+</html>
