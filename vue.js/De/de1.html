@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<h1>{{title}}</h1>
+			<h4>{{massage.name}}</h4>
+			<h4>{{massage.age}}</h4>
+			<button type="button" v-on:click="btnclick" v-if="showbut">click me!</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let box = new Vue({
+			el:'#box',
+			data:{
+				title:'我是一个标题',
+				massage:{name:'fl',age:'25'},
+				showbut:true
+			},methods:{
+				btnclick:function(){
+					alert("hello,veu!")
+				}
+			}
+		})
+	</script>
+</html>

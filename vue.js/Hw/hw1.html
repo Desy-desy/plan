@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<h1>{{message}}</h1>
+			<button v-on:click="reverseMessage">反转字符串</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let box =new Vue({
+			el:'#box',
+			data:{
+				message:'kangrenyuan'
+			},
+			methods:{
+				reverseMessage: function () {
+					this.message = this.message.split("").reverse().join("")
+				}
+			}
+		})
+	</script>
+</html>
