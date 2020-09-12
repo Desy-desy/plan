@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>合计总价</title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<h1>Services</h1>
+			<ul style="list-style: none;">
+				<h3><li v-for="item in services">{{item}}</li></h3>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let totel = new Vue({
+			el:'#box',
+			data:{
+				services:['Web Development','Python','java','GO']
+			}
+		})
+	</script>
+</html>

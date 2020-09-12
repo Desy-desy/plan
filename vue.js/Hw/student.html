@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<style type="text/css">
+			#box{
+				width: 600px;
+				margin: 30px auto;
+			}
+			fieldset{
+				border: 2px solid #00FFFF;
+			}
+			fieldset input{
+				width: 200px;
+				height: 30px;
+				line-height: 30px;
+				margin: 10px 0px;
+				border: 1px solid #00FFFF;
+			}
+			button{
+				height: 30px;
+				line-height: 30px;
+				background-color: #40ACC8;
+				border: 0px;
+				color: white;
+				border-radius: 3px;
+				padding: 0px 10px;
+			}
+			table{
+				width: 600px;
+				border: 2px solid #00FFFF; 
+				margin-top: 10px;
+				text-align: center;
+			}
+			table thead{
+				background-color: #40ACC8;
+				color: #fff;
+				line-height: 40px;
+			}
+			table tr{
+				line-height: 35px;
+			}
+			tbody tr:nth-child(2n){
+				background-color: #ccc;
+			}
+			em{
+				font-size: 12px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<fieldset>
+				<legend>学生信息录入系统</legend>
+				<div>
+					姓名:<input type="text" v-model="newStu.name" placeholder="请输入4-16位数字,字母,下划线"/>
+					<em v-show="nameState">姓名必须是4-16位数字、字母、下划线</em>
+				</div>
+				<div>
+					年龄:<input type="text" v-model="newStu.age" placeholder="请输入年龄"/>
+					<em v-show="ageState">年龄必须是数字</em>
+				</div>
+				<div>
+					性别:
+					<select v-model="newStu.sex" >
+						<option value ="男">男</option>
+						<option value ="女">女</option>
+					</select>
+				</div>
+				<div>
+					手机:<input type="text" v-model="newStu.phone" placeholder="请输手机号码"/>
+					<em v-show="phoneState">请输入正确的手机格式</em>
+				</div>
+				<button @click="createStu()">创建新用户</button>
+			</fieldset>
+			<table cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<td>姓名</td>
+						<td>性别</td>
+						<td>年龄</td>
+						<td>手机</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(item,index) in students">
+						<td>{{item.name}}</td>
+						<td>{{item.sex}}</td>
+						<td>{{item.age}}</td>
+						<td>{{item.phone}}</td>
+						<td><button @click="del(index)">删除</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let zc = new Vue({
+			el:'#box',
+			data:{
+				students:[
+					{name:'方君昊',sex:'男',age:20,phone:'15473124380'},
+					{name:'乔向雁',sex:'女',age:22,phone:'15373124380'},
+					{name:'鲁傲柔',sex:'男',age:23,phone:'15273124380'},
+					{name:'寸琴韵',sex:'女',age:21,phone:'15173124380'}
+				],
+				newStu:{name:'',sex:'男',age:'',phone:''},
+				nameState:false,
+				ageState:false,
+				phoneState:false,
+			},
+			methods:{
+				createStu:function(){//添加学生
+					let namePatt=/^[a-zA-Z0-9_]{4,16}$/;
+					let agePatt=/^(?:[1-9][0-9]?|1[01][0-9]|120)$/;
+					let phonePatt=/^[1][3,4,5,6,7,8,9][0-9]{9}$/;
+					if(!namePatt.test(this.newStu.name)){
+						this.nameState=true;
+						return;
+					}else{
+						this.nameState=false;
+					}
+					if(!agePatt.test(this.newStu.age)){
+						this.ageState=true;
+						return;
+					}else{
+						this.ageState=false;
+					}
+					if(!phonePatt.test(this.newStu.phone)){
+						this.phoneState=true;
+						return;
+					}else{
+						this.phoneState=false;
+					}
+					this.students.push(this.newStu);
+					this.newStu={name:'',sex:'男',age:0,phone:''};
+				},
+				del:function(index){
+					this.students.splice(index,1);
+				}
+			}
+		})
+	</script>
+</html><!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
