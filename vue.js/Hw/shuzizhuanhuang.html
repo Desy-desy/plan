@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="number" v-model="msg"/>
+			<button type="button"@click="zh">添加空格</button>
+			<button type="button"@click="zh1">添加逗号</button>
+			<h1>{{num}}</h1>
+		</div>
+	</body>
+	<script>
+		let zh = new Vue({
+			el:'#box',
+			data:{
+				msg:'',
+				num:''
+			},
+			methods:{
+				zh(){
+					let num=this.msg;
+					if(/\S{5}/.test(num)){
+					  this.num =num.replace(/\s/g, '').replace(/(.{4})/g, "$1 ");
+					}
+				},
+				zh1(){	
+					let num=this.msg;
+					if(/\S{4}/.test(num)){
+					  this.num =num.replace(/\s/g, '').replace(/(.{3})/g, "$1,");
+					}
+				}
+			}
+		})
+	</script>
+</html>
