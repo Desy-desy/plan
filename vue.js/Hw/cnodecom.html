@@ -17,6 +17,13 @@
 			ul li{
 				height: 80px;
 				width: 800px;
+				vertical-align: middle;
+			}
+			span{
+				vertical-align: inherit;
+			}
+			img{
+				vertical-align: inherit;
 			}
 			.title{
 				width:200px;
@@ -24,6 +31,7 @@
 				white-space:nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
+				display: inline-block;
 			}
 		</style>
 	</head>
@@ -31,7 +39,7 @@
 		<div id="box">
 			<ul>
 				<li v-for="item in com">
-					<img src="img/1.jpg" width="60px" height="60px">
+					<img :src="item.author.avatar_url" width="60px" height="60px">
 					<span>{{item.reply_count}}/{{item.visit_count}}</span>
 					<span class="title">{{item.title}}</span>	
 				</li>
