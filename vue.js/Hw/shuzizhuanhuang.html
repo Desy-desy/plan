@@ -23,7 +23,7 @@
 			methods:{
 				zh(){
 					let num=this.msg;
-					if(/\S{5}/.test(num)){
+					if(/\S{5}/.test(num)){//\S非空白就匹配
 					  this.num =num.replace(/\s/g, '').replace(/(.{4})/g, "$1 ");
 					}
 				},

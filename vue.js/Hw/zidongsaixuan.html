@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<style type="text/css">
+			#box{
+				width: 500px;
+				margin: 30px auto;
+			}
+			table{
+				width: 235px;
+				border: 1px solid #00FFFF; 
+				margin-top: 10px;
+				text-align: center;
+			}
+			table thead{
+				background-color: #40ACC8;
+				color: #fff;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			搜索名称:<input type="text" v-model="msg" placeholder="请输入搜索名称"/>
+		<table border="1px" cellspacing="0" cellpadding="10">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Gender</td>
+					<td>Age</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="item in students">
+					<td>{{item.name|cap}}</td>
+					<td>{{item.Gender}}</td>
+					<td>{{item.Age}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</body>
+	<script>
+		let box = new Vue({
+			el:'#box',
+			data:{
+				msg:'',
+				students:[
+					{name:'rick',Gender:'male',Age:21},
+					{name:'demen',Gender:'male',Age:26},
+					{name:'jack',Gender:'male',Age:26},
+					{name:'john',Gender:'female',Age:20},
+					{name:'Lucy',Gender:'female',Age:16}
+				]
+			},
+			filters:{
+				cap(val){
+					return val.charAt(0).toUpperCase()+val.slice(1).toLowerCase();
+				},
+				serch(val){
+					let str = this.name;
+				}
+			}
+		})
+	</script>
+</html>
