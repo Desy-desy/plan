@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<style type="text/css">
+			.nav_box{
+				width: 100%;
+				height: 60px;
+				background-color: #00FFFF;
+			}
+			.nav{
+				text-align: center;
+				position: relative;
+				line-height: 60px;
+			}
+			.nav_serch{
+				position: absolute;
+				left: 0;
+				z-index: 5;
+				width: 30px;
+				height: 30px;
+				margin-top: 18px;
+				border: 0px solid #FF0000;
+			}
+			.nav_sm{
+				position: absolute;
+				right: 7%;
+				z-index: 5;
+				width: 30px;
+				height: 30px;
+				margin-top: 18px;
+				border: 0px solid #FF0000;
+			}
+			input{
+				width: 90%;
+				height:30px;
+				padding-left: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="nav_box">
+				<div class="nav">
+					<img class="nav_serch" src="img/ic_search_gray.png">
+					<input type="text" placeholder="请输入搜索内容"/>
+					<img class="nav_sm" src="img/ic_scan_gray.png">
+				</div>	
+			</div>
+		</div>
+	</body>
+	<script>
+		let box=new Vue({
+			el:'#box',
+			data:{
+				
+			}
+		})
+	</script>
+</html>
