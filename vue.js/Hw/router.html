@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+  <script src="./js/vue-router.js"></script>
+  <style>
+    li{
+      list-style: none;
+      display: inline-block;
+    }
+    #show{
+      width: 400px;
+      height: 400px;
+      background-color: #ffff00;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+   <ul> <!-- 正常情况无法通过a标签的href进行渲染 -->
+      <li><router-link to="/home">首页</router-link></li>
+      <li><router-link to="/vip">会员</router-link></li>
+      <li><router-link to="/hot">活动</router-link></li>
+    </ul>
+    <div id="show">
+      <router-view></router-view>
+    </div>
+  </div>
+</body>
+<script>
+  //1.定义路由组件
+  const Home={template:'<h2>首页</h2>'};
+  const Vip={template:'<h2>会员</h2>'};
+  const Hot={template:'<h2>活动</h2>'};
+  //2.定义路由组件的配置（url的锚点路径）
+  const routes=[
+    {path:'/home',components:Home},
+    {path:'/vip',components:Vip},
+    {path:'/hot',components:Hot}
+  ]
+  //3.把定义好的路由配置，创建一个实例对象
+  const router= new VueRouter({
+    routes
+  })
+  //4.把路由对象跟vue对象进行挂载
+  let box = new Vue({
+    el:'#box',
+    data:{},
+    router,
+    // beforeCreate () {//通过注入路由器，可以设置任何一个路由组件为默认组件
+    //   this.$router.push('/vip');
+    // }
+  })
+  //router.push('/hot');//设置一个路由组件为默认组件
+</script>
+</html>

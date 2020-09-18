@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+  <style>
+    li{
+      list-style: none;
+      display: inline-block;
+    }
+    .show{
+      width: 400px;
+      height: 400px;
+      background-color: #ffff00;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <ul>
+      <li><router-link :to="{name:'home'}">首页</router-link></li>
+      <li><router-link to="/vip">会员</router-link></li>
+    </ul>
+    <div class="show">
+      <router-view></router-view>
+    </div>
+  </div>
+  <template id="home">
+    <div>
+      <h1>首页内容</h1>
+    </div>
+  </template>
+  <template id="vip">
+    <div>
+      <h1>会员中心</h1>
+      <ul>
+        <li><router-link to="/hot/0">会员活动</router-link></li>
+        <li><router-link to="/hot/1">会员体验</router-link></li>
+      </ul>
+    </div>
+  </template>
+  <template id="hot">
+    <div>
+      <h1>会员活动</h1>
+      <p>活动标题:{{titleArr[$route.params.id]}}</p>
+      <p>活动内容:{{contentArr[$route.params.id]}}</p>
+    </div>
+  </template>
+</body>
+<script>
+  const Home=Vue.extend({template:'#home'});//Vue.extend可省略
+  const Vip=({template:'#vip'});
+  const Hot={template:'#hot',data () {
+    return {
+      titleArr:['会员活动1','会员体验1'],
+      contentArr:['现在点击我充100送100','每周四可领100优惠券']
+    }
+  }}
+
+  const routes=[
+    {path:'/home',name:'home',component:Home},
+    {path:'/vip',name:'vip',component:Vip},
+    {path:'/hot/:id',component:Hot},
+    {path:'/',redirect: 'home'}
+  ]
+
+  const router=new VueRouter({
+    routes
+  })
+  let box = new Vue({
+    el:'#box',
+    data:{},
+    router
+  })
+</script>
+</html>

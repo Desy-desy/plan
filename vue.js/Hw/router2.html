@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+  <style>
+    li{
+      list-style: none;
+      display: inline-block;
+    }
+    .show{
+      width: 400px;
+      height: 400px;
+      background-color: #ffff00;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <ul>
+      <li><router-link to="/home">首页</router-link></li>
+      <li><router-link to="/vip">会员</router-link></li>
+      <li><router-link to="/hot">活动</router-link></li>
+    </ul>
+    <div class="show">
+      <router-view></router-view>
+    </div>
+    <template id="home">
+      <div>
+        <h2>我是首页的内容</h2>
+        <ul>
+          <li>推荐</li>
+          <li>推荐</li>
+          <li>招聘</li>
+        </ul>
+      </div>
+    </template>
+    <template id="vip">
+      <div>
+        <h2>我是会员的内容</h2>
+        <router-link to="/vip/open">开通</router-link>
+        <router-link to="/vip/open2">续费</router-link>
+        <router-view></router-view>
+      </div>
+    </template>
+  </div>
+</body>
+<script>
+  const Home={template:'#home'};
+  const Vip={template:'#vip'};
+  const Hot={template:'<h1>我是活动的内容</h1>'};
+
+  const routes=[
+    {path:'/home',component:Home},
+    {path:'/vip',
+      component: Vip,
+      children:[
+        {path:'open',component:'<h1>我是会员内容中的开通</h1>'},
+        {path:'open2',component:'<h1>我是会员内容中的续费</h1>'},
+        {path: '/',redirect:"open2"}//设置默认组件  
+      ]
+    },
+    {path:'/hot',component:Hot}
+  ]
+
+  const router=new VueRouter({
+    routes:routes
+  })
+
+  let box=new Vue({
+    el:'#box',
+    data:{},
+    router:router,
+    beforeCreate () {//通过注入路由器，可以设置任何一个路由组件为默认组件
+      this.$router.push('/home');
+    }
+  })
+</script>
+</html>
