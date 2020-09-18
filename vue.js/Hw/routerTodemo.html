@@ -24,6 +24,7 @@
       <li><router-link :to="{name:'home'}">首页</router-link></li>
       <li><router-link to="/vip">会员</router-link></li>
     </ul>
+    <button @click="btnC">点我</button>
     <div class="show">
       <router-view></router-view>
     </div>
@@ -73,7 +74,12 @@
   let box = new Vue({
     el:'#box',
     data:{},
-    router
+    router,
+    methods: {
+      btnC(){
+        router.push("/vip")
+      }
+    }
   })
 </script>
 </html>
