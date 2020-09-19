@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="js/vue-router.js"></script>
+  <style>
+    .show{
+      width: 940px;
+      height: 400px;
+      background-color:#ccc;
+      margin: -40px 65px;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="nav-headr">
+          <a href="#" class="navbar-brand">Vue</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><router-link to="/home">首页</router-link></li>
+          <li><a>关于我们</a></li>
+          <li><router-link to="/vip">用户中心<span class="caret"></span></router-link></li>
+          <li><a>登录</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="show">
+      <router-view></router-view>
+    </div>
+  </div>
+  <template id="user">
+    <div>
+      <h1>用户中心中的内容</h1>
+      <div>
+        <router-link to="/vip/open1">开通</router-link>
+        <router-link to="/vip/open2">续费</router-link>
+        <router-view></router-view>
+      </div>
+    </div>
+  </template>
+</body>
+<script>
+  const Home={template:"<h1>我是首页中的内容</h1>"};
+  const Vip={template:"#user"};
+  const Open={template:"<h1>我是账户中心中的内容</h1>"};
+  const Open2={template:"<h1>我也是账户中心中的内容</h1>"};
+  const routes=[
+    {path: '/home', component: Home},
+    {path: '/vip', component: Vip,
+    children:[
+      {path:'open1',component:Open},
+      {path:'open2',component:Open2}
+    ]
+    },
+    {path: '/', redirect: 'home'}
+  ];
+  const router=new VueRouter({
+    routes
+  });
+  let box = new Vue({
+    el:'#box',
+    data:{},
+    router
+  })
+</script>
+</html>
