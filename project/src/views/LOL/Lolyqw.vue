@@ -47,7 +47,6 @@ a{
   text-decoration: none;
 }
 .g_link{
-    flex:1;
     width:47%;
     margin-left: 2%;
     padding-bottom: 10px;

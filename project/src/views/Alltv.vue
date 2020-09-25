@@ -9,74 +9,20 @@
         <div class="right_text">更多<i class="right"></i></div>
       </div>
         <div class="main">
-          <a href="#" class="g_link">
+          <a href="#" class="g_link" v-for="item in anchor" :key="item.id">
             <div class="g_item">
               <div class="g_pic">
-                <span class="game_name">英雄联盟</span>
+                <span class="game_name">{{item.gamename}}</span>
                 <div class="pic">
-                  <img class="pic_con" src="../assets/lol.jpg" alt="#">
+                  <img class="pic_con" :src="item.imgs" alt="#">
                 </div>
               </div>
-              <p class="title">【帐】韩服王者局</p>
+              <p class="title">{{item.title}}</p>
               <div class="info clearfix">
-                <span class="nick">聆听丶虎神</span>
+                <span class="nick">{{item.nick}}</span>
                 <div class="viewer_wrap">
                   <i class="viewer_icon"></i>
-                  <span class="viewer_count">122.5万</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="g_link">
-            <div class="g_item">
-              <div class="g_pic">
-                <span class="game_name">炉石传说</span>
-                <div class="pic">
-                  <img class="pic_con" src="../assets/game2.jpg" alt="#">
-                </div>
-              </div>
-              <p class="title">认真模式，万5冲万6</p>
-              <div class="info clearfix">
-                <span class="nick">太极剑</span>
-                <div class="viewer_wrap">
-                  <i class="viewer_icon"></i>
-                  <span class="viewer_count">43.8万</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="g_link">
-            <div class="g_item">
-              <div class="g_pic">
-                <span class="game_name">王者荣耀</span>
-                <div class="pic">
-                  <img class="pic_con" src="../assets/game2.jpg" alt="#">
-                </div>
-              </div>
-              <p class="title">天秀李白，单排第四个100星！</p>
-              <div class="info clearfix">
-                <span class="nick">正恒丶夕阳</span>
-                <div class="viewer_wrap">
-                   <i class="viewer_icon"></i>
-                  <span class="viewer_count">102.6万</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="g_link">
-            <div class="g_item">
-              <div class="g_pic">
-                <span class="game_name">和平精英</span>
-                <div class="pic">
-                  <img class="pic_con" src="../assets/game2.jpg" alt="#">
-                </div>
-              </div>
-              <p class="title">【王牌追猎1v4】</p>
-              <div class="info clearfix">
-                <span class="nick">DK-不求人</span>
-                <div class="viewer_wrap">
-                  <i class="viewer_icon"></i>
-                  <span class="viewer_count">604.1万</span>
+                  <span class="viewer_count">{{item.count}}</span>
                 </div>
               </div>
             </div>
@@ -167,6 +113,21 @@
     </div>
 </template>
 
+<script>
+export default {
+  data(){
+    return{
+      anchor:[
+        {gamename:"英雄联盟",imgs:require("../assets/lol.jpg"),title:"【帐】韩服王者局",nick:"聆听丶虎神",count:"122.5万"},
+        {gamename:"炉石传说",imgs:require("../assets/game2.jpg"),title:"认真模式，万5冲万6",nick:"太极剑",count:"43.8万"},
+        {gamename:"王者荣耀",imgs:require("../assets/game2.jpg"),title:"天秀李白，单排第四个100星！",nick:"正恒丶夕阳",count:"102.6万"},
+        {gamename:"和平精英",imgs:require("../assets/game2.jpg"),title:"【王牌追猎1v4】",nick:"DK-不求人",count:"604.1万"}
+        ]
+    }
+  }
+}
+</script>
+
 <style scoped>
   .alltvbody{
     width: 100%;
@@ -187,7 +148,7 @@
   .left{
     float: left;
     width: 200px;
-    margin-top:-15px;
+    margin-top:-12px;
     flex:1;
   }
   .right{
@@ -210,7 +171,8 @@
     height: 25px;
   }
   a{
-   text-decoration:none;
+    /* display: flex; */
+    text-decoration:none;
   }
   .right_text{
     width: 42px;
@@ -232,15 +194,16 @@
     flex-wrap:wrap;
   }
   .g_link{
-    flex:1;
-    width:47%;
-    margin-left: 2%;
+    width:48%;
+    margin-left: 1%;
+    margin-right: 1%;
     padding-bottom: 10px;
   }
   .g_item{
     position: relative;
     overflow: hidden;
     -webkit-box-flex:1;
+    justify-content: center;
   }
   .g_pic{
     position: relative;

@@ -3,28 +3,10 @@
     <div class="nav">
       <div class="th">
         <div class="btns" v-show="h">
-          <router-link to="/home" class="nav-link">首页</router-link>
-          <router-link to="/wz" class="nav-link">王者荣耀</router-link>
-          <router-link to="/jdqs" class="nav-link">绝地求生</router-link>
-          <router-link to="/lol" class="nav-link">英雄联盟</router-link>
-          <router-link to="/xx" class="nav-link">星秀</router-link>
-          <router-link to="/chwl" class="nav-link">吃喝玩乐</router-link>
-          <router-link to="/zjyx" class="nav-link">主机游戏</router-link>
-          <router-link to="/hpjy" class="nav-link">和平精英</router-link>
-          <router-link to="/cf" class="nav-link">穿越火线</router-link>
-          <router-link to="/yz" class="nav-link">颜值</router-link>
-          <router-link to="/ecy" class="nav-link">二次元</router-link>
-          <router-link to="/dnf" class="nav-link">地下城与勇士</router-link>
-          <router-link to="/bx" class="nav-link">暴雪专区</router-link>
-          <router-link to="/yqk" class="nav-link">一起看</router-link>
-          <router-link to="/wdsj" class="nav-link">我的世界</router-link>
+          <router-link :to="item.adr" class="nav-link" v-for="(item,index) in navbtn" :key="item.id" :class="{'active': isActive == index}" @click.native="toggleActive(index)">{{item.name}}</router-link>
         </div>
         <div class="btnh" v-show="!h">
-          <router-link to="/hot" class="nav-link">热门</router-link>
-          <router-link to="#" class="nav-link">网游</router-link>
-          <router-link to="" class="nav-link">单机</router-link>
-          <router-link to="#" class="nav-link">娱乐</router-link>
-          <router-link to="#" class="nav-link">手游</router-link>
+          <router-link :to="item.adr" class="nav-link" v-for="(item,index) in hnavbtn" :key="item.id" :class="{'active': isActive == index}" @click.native="toggleActive(index)">{{item.name}}</router-link>
         </div>
       </div>
       <i class="icon" @click="navClick()" v-show="h"><img src="../assets/icon.png"></i>
@@ -37,17 +19,45 @@
 export default {
   data(){
     return{
-      h:true
+      h:true,
+      isActive:0,
+      navbtn:[
+        {adr:"/home",name:"首页"},
+        {adr:"/wz",name:"王者荣耀"},
+        {adr:"/jdqs",name:"绝地求生"},
+        {adr:"/lol",name:"英雄联盟"},
+        {adr:"/xx",name:"星秀"},
+        {adr:"/hpjy",name:"和平精英"},
+        {adr:"/cf",name:"穿越火线"},
+        {adr:"/yz",name:"颜值"},
+        {adr:"/ecy",name:"二次元"},
+        {adr:"/dnf",name:"地下城与勇士"},
+        {adr:"/bx",name:"暴雪专区"},
+        {adr:"/yqk",name:"一起看"},
+        {adr:"/wdsj",name:"我的世界"}
+        ],
+      hnavbtn:[
+        {adr:"/hot",name:"热门"},
+        {adr:"/hot",name:"网游"},
+        {adr:"/hot",name:"单机"},
+        {adr:"/hot",name:"娱乐"},
+        {adr:"/hot",name:"手游"},
+      ]
     }
   },
   methods:{
     navClick(){
       this.$router.push('/netgame');
       this.h=!this.h;
+      this.isActive = 0;
     },
     hClick(){
       this.$router.push('/home');
       this.h=!this.h;
+      this.isActive = 0;
+    },
+    toggleActive(index) {
+      this.isActive = index;
     }
   }
 }
@@ -68,9 +78,16 @@ export default {
     overflow:scroll;
     white-space: nowrap;
   }
+  .btns::-webkit-scrollbar{   /* 隐藏滚动条 */
+    display:none;
+  }
   .nav-link{
     padding: 2px 0;
     margin-right: 20px;
+  }
+  .active{
+    color: #ffa200;
+    border-bottom: 2px solid;
   }
   a{
     text-decoration: none;

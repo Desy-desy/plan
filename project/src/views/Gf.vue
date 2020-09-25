@@ -1,79 +1,42 @@
 <template>
   <div class="box">
-    <a href="#" class="g_link">
+    <a href="#" class="g_link" v-for="item in anchor" :key="item.id">
       <div class="g_item">
         <div class="g_pic">
-          <span class="game_name">王者荣耀</span>
+          <span class="game_name">{{item.gamename}}</span>
           <div class="pic">
-            <img class="pic_con" src="../assets/game2.jpg" alt="#">
-          </div>
-          </div>
-          <p class="title">天秀李白，单排第四个100星！</p>
-          <div class="info clearfix">
-            <span class="nick">正恒丶夕阳</span>
-            <div class="viewer_wrap">
-              <i class="viewer_icon"></i>
-              <span class="viewer_count">102.6万</span>
+            <img class="pic_con" :src="item.imgs" alt="#">
           </div>
         </div>
-      </div>
-    </a>
-    <a href="#" class="g_link">
-      <div class="g_item">
-        <div class="g_pic">
-          <span class="game_name">王者荣耀</span>
-          <div class="pic">
-            <img class="pic_con" src="../assets/game2.jpg" alt="#">
-          </div>
-          </div>
-          <p class="title">天秀李白，单排第四个100星！</p>
-          <div class="info clearfix">
-            <span class="nick">正恒丶夕阳</span>
-            <div class="viewer_wrap">
-              <i class="viewer_icon"></i>
-              <span class="viewer_count">102.6万</span>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="g_link">
-      <div class="g_item">
-        <div class="g_pic">
-          <span class="game_name">王者荣耀</span>
-          <div class="pic">
-            <img class="pic_con" src="../assets/game2.jpg" alt="#">
-          </div>
-          </div>
-          <p class="title">天秀李白，单排第四个100星！</p>
-          <div class="info clearfix">
-            <span class="nick">正恒丶夕阳</span>
-            <div class="viewer_wrap">
-              <i class="viewer_icon"></i>
-              <span class="viewer_count">102.6万</span>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="g_link">
-      <div class="g_item">
-        <div class="g_pic">
-          <span class="game_name">王者荣耀</span>
-          <div class="pic">
-            <img class="pic_con" src="../assets/game2.jpg" alt="#">
-          </div>
-          </div>
-          <p class="title">天秀李白，单排第四个100星！</p>
-          <div class="info clearfix">
-            <span class="nick">正恒丶夕阳</span>
-            <div class="viewer_wrap">
-              <i class="viewer_icon"></i>
-              <span class="viewer_count">102.6万</span>
+        <p class="title">{{item.title}}</p>
+        <div class="info clearfix">
+          <span class="nick">{{item.nick}}</span>
+          <div class="viewer_wrap">
+            <i class="viewer_icon"></i>
+            <span class="viewer_count">{{item.count}}</span>
           </div>
         </div>
       </div>
     </a>
   </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return{
+      anchor:[
+        {gamename:"英雄联盟",imgs:require("../assets/lol.jpg"),title:"【帐】韩服王者局",nick:"聆听丶虎神",count:"122.5万"},
+        {gamename:"炉石传说",imgs:require("../assets/game2.jpg"),title:"认真模式，万5冲万6",nick:"太极剑",count:"43.8万"},
+        {gamename:"王者荣耀",imgs:require("../assets/game2.jpg"),title:"天秀李白，单排第四个100星！",nick:"正恒丶夕阳",count:"102.6万"},
+        {gamename:"和平精英",imgs:require("../assets/game2.jpg"),title:"【王牌追猎1v4】",nick:"DK-不求人",count:"604.1万"},
+        {gamename:"炉石传说",imgs:require("../assets/game2.jpg"),title:"认真模式，万5冲万6",nick:"太极剑",count:"43.8万"},
+        {gamename:"炉石传说",imgs:require("../assets/game2.jpg"),title:"认真模式，万5冲万6",nick:"太极剑",count:"43.8万"}
+      ]
+    }
+  }
+}
+</script>
 
 <style scoped>
 .box{

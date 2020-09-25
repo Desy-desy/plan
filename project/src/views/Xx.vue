@@ -11,6 +11,9 @@
       <router-link to="yq" class="nav_list_item ">乐器</router-link>
       <router-link to="xxyz" class="nav_list_item">颜值</router-link>
     </div>
+    <div class="icon">
+      <i></i>
+    </div>
     <div>
       <router-view></router-view>
     </div>
@@ -58,7 +61,7 @@
     white-space: nowrap;
   }
   .icon{
-    height: 24px;
+    height: 18px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;
@@ -68,7 +71,7 @@
     background: #fff;
     position: absolute;
     right: 10px;
-    top: 55px;
+    top: 100px;
     -ms-flex-align: center;
     align-items: center;
     border: 1px solid #e4e4e4;
@@ -78,6 +81,7 @@
     text-decoration: none;
   }
   i{
+    float: right;;
     width: 12px;
     height: 7px;
     background: url(../assets/down.png) no-repeat 0 0/contain;

@@ -47,9 +47,9 @@ a{
   text-decoration: none;
 }
 .g_link{
-    flex:1;
     width:47%;
-    margin-left: 2%;
+    margin-left: 1%;
+    margin-right:1%;
     padding-bottom: 10px;
   }
   .g_item{

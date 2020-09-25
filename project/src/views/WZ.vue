@@ -1,7 +1,7 @@
 <template>
   <div class="WZ">
     <div class="nav_list_box">
-      <router-link to="wzrytv" class="nav_list_item active">全部</router-link>
+      <router-link to="wzrytv" class="nav_list_item ">全部</router-link>
       <router-link to="mn" class="nav_list_item ">模拟战</router-link>
       <router-link to="gf" class="nav_list_item ">国服</router-link>
       <router-link to="mnv" class="nav_list_item ">美女</router-link>
@@ -47,7 +47,11 @@ export default {
     flex-wrap: wrap;
     position: relative;
   }
-  .nav_list_item.active{
+  .router-link-exact-active{
+    border: 1px solid #ffa900;
+    color: #ffa900;
+  }
+  .router_link_active{
     border: 1px solid #ffa900;
     color: #ffa900;
   }
