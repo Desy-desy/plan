@@ -28,82 +28,163 @@
             </div>
           </a>
         </div>
-        <div class="alltv_header">
+      <div class="alltv_header">
         <div class="left">
-          <i class="logo"></i>
-          <h2>全部直播</h2>
+          <i class="lollogo"></i>
+          <h2>英雄联盟</h2>
         </div>
         <div class="right_text">更多<i class="right"></i></div>
       </div>
         <div class="main">
-          <a href="#" class="g_link">
+          <a href="#" class="g_link" v-for="item in anchor" :key="item.id">
             <div class="g_item">
               <div class="g_pic">
-                <span class="game_name">英雄联盟</span>
+                <span class="game_name">{{item.gamename}}</span>
                 <div class="pic">
-                  <img class="pic_con" src="../assets/lol.jpg" alt="#">
+                  <img class="pic_con" :src="item.imgs" alt="#">
                 </div>
               </div>
-              <p class="title">【帐】韩服王者局</p>
+              <p class="title">{{item.title}}</p>
               <div class="info clearfix">
-                <span class="nick">聆听丶虎神</span>
+                <span class="nick">{{item.nick}}</span>
                 <div class="viewer_wrap">
                   <i class="viewer_icon"></i>
-                  <span class="viewer_count">122.5万</span>
+                  <span class="viewer_count">{{item.count}}</span>
                 </div>
               </div>
             </div>
           </a>
-          <a href="#" class="g_link">
+        </div>
+      <div class="alltv_header">
+        <div class="left">
+          <i class="wzrylogo"></i>
+          <h2>王者荣耀</h2>
+        </div>
+        <div class="right_text">更多<i class="right"></i></div>
+      </div>
+        <div class="main">
+          <a href="#" class="g_link" v-for="item in anchor" :key="item.id">
             <div class="g_item">
               <div class="g_pic">
-                <span class="game_name">炉石传说</span>
+                <span class="game_name">{{item.gamename}}</span>
                 <div class="pic">
-                  <img class="pic_con" src="../assets/game2.jpg" alt="#">
+                  <img class="pic_con" :src="item.imgs" alt="#">
                 </div>
               </div>
-              <p class="title">认真模式，万5冲万6</p>
+              <p class="title">{{item.title}}</p>
               <div class="info clearfix">
-                <span class="nick">太极剑</span>
+                <span class="nick">{{item.nick}}</span>
                 <div class="viewer_wrap">
                   <i class="viewer_icon"></i>
-                  <span class="viewer_count">43.8万</span>
+                  <span class="viewer_count">{{item.count}}</span>
                 </div>
               </div>
             </div>
           </a>
-          <a href="#" class="g_link">
+        </div>
+      <div class="alltv_header">
+        <div class="left">
+          <i class="xxlogo"></i>
+          <h2>星秀</h2>
+        </div>
+        <div class="right_text">更多<i class="right"></i></div>
+      </div>
+        <div class="main">
+          <a href="#" class="g_link" v-for="item in anchor" :key="item.id">
             <div class="g_item">
               <div class="g_pic">
-                <span class="game_name">王者荣耀</span>
+                <span class="game_name">{{item.gamename}}</span>
                 <div class="pic">
-                  <img class="pic_con" src="../assets/game2.jpg" alt="#">
+                  <img class="pic_con" :src="item.imgs" alt="#">
                 </div>
               </div>
-              <p class="title">天秀李白，单排第四个100星！</p>
+              <p class="title">{{item.title}}</p>
               <div class="info clearfix">
-                <span class="nick">正恒丶夕阳</span>
+                <span class="nick">{{item.nick}}</span>
                 <div class="viewer_wrap">
-                   <i class="viewer_icon"></i>
-                  <span class="viewer_count">102.6万</span>
+                  <i class="viewer_icon"></i>
+                  <span class="viewer_count">{{item.count}}</span>
                 </div>
               </div>
             </div>
           </a>
-          <a href="#" class="g_link">
+        </div>
+      <div class="alltv_header">
+        <div class="left">
+          <i class="chwllogo"></i>
+          <h2>吃喝玩乐</h2>
+        </div>
+        <div class="right_text">更多<i class="right"></i></div>
+      </div>
+        <div class="main">
+          <a href="#" class="g_link" v-for="item in anchor" :key="item.id">
             <div class="g_item">
               <div class="g_pic">
-                <span class="game_name">和平精英</span>
+                <span class="game_name">{{item.gamename}}</span>
                 <div class="pic">
-                  <img class="pic_con" src="../assets/game2.jpg" alt="#">
+                  <img class="pic_con" :src="item.imgs" alt="#">
                 </div>
               </div>
-              <p class="title">【王牌追猎1v4】</p>
+              <p class="title">{{item.title}}</p>
               <div class="info clearfix">
-                <span class="nick">DK-不求人</span>
+                <span class="nick">{{item.nick}}</span>
                 <div class="viewer_wrap">
                   <i class="viewer_icon"></i>
-                  <span class="viewer_count">604.1万</span>
+                  <span class="viewer_count">{{item.count}}</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      <div class="alltv_header">
+        <div class="left">
+          <i class="hpjylogo"></i>
+          <h2>和平精英</h2>
+        </div>
+        <div class="right_text">更多<i class="right"></i></div>
+      </div>
+        <div class="main">
+          <a href="#" class="g_link" v-for="item in anchor" :key="item.id">
+            <div class="g_item">
+              <div class="g_pic">
+                <span class="game_name">{{item.gamename}}</span>
+                <div class="pic">
+                  <img class="pic_con" :src="item.imgs" alt="#">
+                </div>
+              </div>
+              <p class="title">{{item.title}}</p>
+              <div class="info clearfix">
+                <span class="nick">{{item.nick}}</span>
+                <div class="viewer_wrap">
+                  <i class="viewer_icon"></i>
+                  <span class="viewer_count">{{item.count}}</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      <div class="alltv_header">
+        <div class="left">
+          <i class="jdqslogo"></i>
+          <h2>绝地求生</h2>
+        </div>
+        <div class="right_text">更多<i class="right"></i></div>
+      </div>
+        <div class="main">
+          <a href="#" class="g_link" v-for="item in anchor" :key="item.id">
+            <div class="g_item">
+              <div class="g_pic">
+                <span class="game_name">{{item.gamename}}</span>
+                <div class="pic">
+                  <img class="pic_con" :src="item.imgs" alt="#">
+                </div>
+              </div>
+              <p class="title">{{item.title}}</p>
+              <div class="info clearfix">
+                <span class="nick">{{item.nick}}</span>
+                <div class="viewer_wrap">
+                  <i class="viewer_icon"></i>
+                  <span class="viewer_count">{{item.count}}</span>
                 </div>
               </div>
             </div>
@@ -137,6 +218,66 @@ export default {
   }
   .logo{
     background-image: url(../assets/alltv.png);
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 2px;
+    background-size: 100% 100%;
+    background-color: transparent;
+  }
+  .lollogo{
+    background-image: url(../assets/Lol_logo.png);
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 2px;
+    background-size: 100% 100%;
+    background-color: transparent;
+  }
+  .wzrylogo{
+    background-image: url(../assets/wzry.png);
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 2px;
+    background-size: 100% 100%;
+    background-color: transparent;
+  }
+  .xxlogo{
+    background-image: url(../assets/xx.png);
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 2px;
+    background-size: 100% 100%;
+    background-color: transparent;
+  }
+  .chwllogo{
+    background-image: url(../assets/chwl.png);
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 2px;
+    background-size: 100% 100%;
+    background-color: transparent;
+  }
+  .hpjylogo{
+    background-image: url(../assets/hpjy.png);
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 2px;
+    background-size: 100% 100%;
+    background-color: transparent;
+  }
+  .jdqslogo{
+    background-image: url(../assets/jdqs.png);
     width: 25px;
     height: 25px;
     vertical-align: middle;
