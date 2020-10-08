@@ -1,0 +1,29 @@
+{
+  "anchor":[
+    {
+      "gamename":"英雄联盟",
+      "imgs":"../assets/lol.jpg",
+      "title":"【帐】韩服王者局",
+      "nick":"聆听丶虎神",
+      "count":"122.5万"
+    },{
+      "gamename":"炉石传说",
+      "imgs":"../assets/game2.jpg",
+      "title":"认真模式，万5冲万6",
+      "nick":"太极剑",
+      "count":"43.8万"
+    },{
+      "gamename":"王者荣耀",
+      "imgs":"../assets/lol.jpg",
+      "title":"天秀李白，单排第四个100星！",
+      "nick":"正恒丶夕阳",
+      "count":"102.6万"
+    },{
+      "gamename":"和平精英",
+      "imgs":"../assets/game2.jpg",
+      "title":"【王牌追猎1v4】",
+      "nick":"DK-不求人",
+      "count":"604.1万"
+    }
+  ]
+}
