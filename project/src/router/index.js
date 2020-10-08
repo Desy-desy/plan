@@ -45,6 +45,7 @@ import Yq from '../views/XX/Yq.vue'
 import Xxyz from '../views/XX/Xxyz.vue'
 import Netgame from '../views/Netgame.vue'
 import Hot from '../views/Netgame.vue'
+import Up from '../components/Up.vue'
 
 Vue.use(VueRouter)
 
@@ -172,6 +173,10 @@ const routes = [
   {
     path:'/hot',
     component: Hot
+  },
+  {
+    path:'/up',
+    component: Up
   }
   
   
