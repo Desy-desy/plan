@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function get(url,callback){
+      let xhr = new XMLHttpRequest()
+      xhr.onload = ()=>{
+        //需要得到这里的xhr.responseText
+        callback(xhr.responseText)
+      }
+      xhr.open('get',url,true)
+      xhr.send()
+    }
+
+    get('data.json',(data)=>{
+      console.log(data)
+    })
+  </script>
+</body>
+</html>
