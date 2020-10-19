@@ -45,11 +45,12 @@ router.get('/students',(req,res)=>{
 router.get('/students/new',(req,res)=>{
   res.render('new.html')
 })
+
 router.post('/students/new',(req,res)=>{
   // console.log(req.body);
   // 将数据保存到db.json中
   //先读取出来转成对象，然后往对象中push，然后把对象转成字符串，然后写入文件
-  Student.save(req.body,(err)=>{
+  new Student(req.body).save((err)=>{
     if (err) {
       return res.status(500).send('server error.')
     }
@@ -63,7 +64,8 @@ router.get('/students/edit',(req,res)=>{
   // res.render('edit.html',{
   //   student:
   // })
-  Student.findById(parseInt(req.query.id),(err,student)=>{
+  //replace，正则表达将取得的id带有的所有的"替换成空
+  Student.findById(req.query.id.replace(/"/g,''),(err,student)=>{
     if (err) {
       return res.status(500).send('Server error')
     }
@@ -75,7 +77,8 @@ router.get('/students/edit',(req,res)=>{
 
 router.post('/students/edit',(req,res)=>{
   //获取表单数据，更新，student.update，发送响应
-  Student.updateById(req.body,(err)=>{
+  let id = req.body.id.replace(/"/g,'')
+  Student.findByIdAndUpdate(id,req.body,(err)=>{
     if (err) {
       return res.status(500).send('server error')
     }
@@ -86,7 +89,8 @@ router.post('/students/edit',(req,res)=>{
 //处理删除学生
 router.get('/students/delete',(req,res)=>{
   //获取要删除的id，根据id执行删除操作，根据操作结果发送响应数据
-  Student.deleteById(req.query.id,(err)=>{
+  let id = req.query.id.replace(/"/g,'')
+  Student.findByIdAndRemove(id,(err)=>{
     if (err) {
       return res.status(500).send('server error')
     }
